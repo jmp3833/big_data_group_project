@@ -1,25 +1,20 @@
 \begin{thebibliography}{1}
 
-\bibitem{bowman:reasoning}
-M.~Bowman, S.~K. Debray, and L.~L. Peterson.
-\newblock Reasoning about naming systems.
-\newblock {\em ACM Trans. Program. Lang. Syst.}, 15(5):795--825, November 1993.
+\bibitem{FBCrawl}
+2005 facebook crawl.
+\newblock \url{https://archive.org/details/oxford-2005-facebook-matrix}.
 
-\bibitem{braams:babel}
-J.~Braams.
-\newblock Babel, a multilingual style-option system for use with latex's
-  standard document styles.
-\newblock {\em TUGboat}, 12(2):291--301, June 1991.
+\bibitem{Kwak10www}
+H.~Kwak, C.~Lee, H.~Park, and S.~Moon.
+\newblock {W}hat is {T}witter, a social network or a news media?
+\newblock In {\em WWW '10: Proceedings of the 19th international conference on
+  World wide web}, pages 591--600, New York, NY, USA, 2010. ACM.
 
-\bibitem{clark:pct}
-M.~Clark.
-\newblock Post congress tristesse.
-\newblock In {\em TeX90 Conference Proceedings}, pages 84--89. TeX Users Group,
-  March 1991.
-
-\bibitem{herlihy:methodology}
-M.~Herlihy.
-\newblock A methodology for implementing highly concurrent data objects.
-\newblock {\em ACM Trans. Program. Lang. Syst.}, 15(5):745--770, November 1993.
+\bibitem{iEEE:6542441}
+D.~Posnett, E.~Warburg, P.~Devanbu, and V.~Filkov.
+\newblock Mining stack exchange: Expertise is evident from initial
+  contributions.
+\newblock In {\em Social Informatics (SocialInformatics), 2012 International
+  Conference on}, pages 199--204, Dec 2012.
 
 \end{thebibliography}

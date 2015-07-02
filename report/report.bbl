@@ -4,6 +4,11 @@
 2005 facebook crawl.
 \newblock \url{https://archive.org/details/oxford-2005-facebook-matrix}.
 
+\bibitem{TIOBERATINGS}
+Tiobe programming language popularity rating.
+\newblock
+  \url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}.
+
 \bibitem{Kwak10www}
 H.~Kwak, C.~Lee, H.~Park, and S.~Moon.
 \newblock {W}hat is {T}witter, a social network or a news media?

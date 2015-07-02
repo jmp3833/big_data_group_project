@@ -8,46 +8,52 @@ I was expecting a `,' or a `}'---line 53 of file report.bib
  :   note         = {Accessed: 2015-06-17}
 (Error may have been on previous line)
 I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 65 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-06-30}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
 Warning--to sort, need author or key in FBCrawl
-You've used 3 entries,
+Warning--to sort, need author or key in TIOBERATINGS
+You've used 4 entries,
             2118 wiz_defined-function locations,
-            517 strings with 4275 characters,
-and the built_in function-call counts, 1210 in all, are:
-= -- 120
-> -- 47
+            521 strings with 4413 characters,
+and the built_in function-call counts, 1369 in all, are:
+= -- 135
+> -- 48
 < -- 2
-+ -- 19
++ -- 20
 - -- 16
-* -- 76
-:= -- 175
-add.period$ -- 9
-call.type$ -- 3
-change.case$ -- 17
+* -- 81
+:= -- 192
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 20
 chr.to.int$ -- 0
-cite$ -- 4
-duplicate$ -- 53
-empty$ -- 104
+cite$ -- 6
+duplicate$ -- 60
+empty$ -- 127
 format.name$ -- 16
-if$ -- 277
+if$ -- 317
 int.to.chr$ -- 0
-int.to.str$ -- 3
+int.to.str$ -- 4
 missing$ -- 2
-newline$ -- 17
+newline$ -- 21
 num.names$ -- 4
-pop$ -- 27
+pop$ -- 35
 preamble$ -- 1
-purify$ -- 14
+purify$ -- 16
 quote$ -- 0
-skip$ -- 46
+skip$ -- 54
 stack$ -- 0
-substring$ -- 75
-swap$ -- 22
+substring$ -- 80
+swap$ -- 23
 text.length$ -- 2
 text.prefix$ -- 0
 top$ -- 0
-type$ -- 12
-warning$ -- 1
+type$ -- 16
+warning$ -- 2
 while$ -- 9
-width$ -- 4
-write$ -- 33
-(There was 1 error message)
+width$ -- 5
+write$ -- 40
+(There were 2 error messages)

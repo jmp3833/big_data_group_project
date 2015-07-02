@@ -18,4 +18,3 @@ npm install // Installs required dependencies
 
 node twitter_store.js //Begin piping tweets into the local DB instance titled 'test'
 ```
-

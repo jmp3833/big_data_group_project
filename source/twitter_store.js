@@ -4,6 +4,10 @@
  * @date: 07/01/15
 */
 
+//Twitter API abstraction for NodeJS
+var Twit = require('twit');
+var MongoClient = require('mongodb').MongoClient;
+
 /*
  * Utility Function to detect if a tweet is a retweet
  * in order to reduce redundancies and not write it to the DB
@@ -11,24 +15,20 @@
  */
 function isRetweet(tweetText) {
   //All retweets begin with 'RT @'
-  return tweetText.includes("RT @");
+  return tweetText.indexOf("RT @") > -1;
 }
-
-//Twitter API abstraction for NodeJS
-var Twit = require('twit');
-var MongoClient = require('mongodb').MongoClient;
 
 //Any strings you would like to filter the Tweets by.
 var searchParams = ['programming', 'ruby', 'python', 'someOtherTopic'];
 
 var twitterAPI = new Twit({
   //These are specific to the application
-  consumer_key: 'qCi8ZXdOYutLp5zzXOEmgBO6X',
+  consumer_key: 'qCi8ZXdOYutLp5zzXOEmgBO6X', 
   consumer_secret: '9CQfMVqpo5TPibMW18CM2P2OuVGcqvB6hBlGShPREBRSEOtrzF',
 
   //These are specific to your Twitter account
-  access_token: '<<GET_AND_INSERT_YOURS_HERE>>',
-  access_token_secret: '<<GET_AND_INSERT_YOURS_HERE>>'
+  access_token: '778969536-VLEwtOiWcMlbN4a1sPkG2XMKfvBqGLsF9NndpLSX', 
+  access_token_secret: 'x6bJmx0efmBdSPnL35o6e6hi0emYpo3QNQ9QhGZKvMs9d' 
 });
 
 //Twitter API takes comma separated search values

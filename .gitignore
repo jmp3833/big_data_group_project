@@ -1,0 +1,3 @@
+*.swp
+*.out
+source/node_modules/*

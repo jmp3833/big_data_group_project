@@ -10,11 +10,18 @@ https://drive.google.com/folderview?id=0B4_D5lAODgaNfjdlWjVhZ3p2ZFlkeWxiMWRrRWx3
 * A developer account through Twitter: 
 ** some configuration vars that need to be set. You need to set up a developer account throughTwitter to generate an access_token and access_token_secret to access the Twitter API. 
 
-####Execution:
+####Twitter Mining Execution:
 ```
 mongod --dbpath /<someDir>/test //Start a mongoDB database at the path /<someDir>/test
 
 npm install // Installs required dependencies
 
-node twitter_store.js //Begin piping tweets into the local DB instance titled 'test'
+nodejs mine-twitter.js  //Begin piping tweets into the local DB instance titled 'test'
+```
+
+####Running the Terms Parser (Python):
+
+```
+cd TermParser
+python terms-parser.py
 ```

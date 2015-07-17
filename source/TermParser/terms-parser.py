@@ -41,8 +41,8 @@ def writeTermsToFile(outFile, termsFile, languagesFile):
 
     writeJSONToFile(searchCriterion, outFile)
 
-termsFile = './programmingTerms' 
-languagesFile = './programmingLanguages' 
+termsFile = '../data/programmingTerms' 
+languagesFile = '../data/programmingLanguages' 
 outFile = './terms.json'
 
 writeTermsToFile(outFile, termsFile, languagesFile)

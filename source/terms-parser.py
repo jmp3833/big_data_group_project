@@ -1,6 +1,6 @@
 import json
 
-def parseProgrammingTerms(filename, outFile):
+def parseProgrammingTerms(filename):
     with open (filename) as f:
         termsList = []
         content = f.readlines()
@@ -10,8 +10,39 @@ def parseProgrammingTerms(filename, outFile):
                     termsList.append(line.rstrip());
 
         f.close() 
+    return termsList
+
+def parseProgrammingLanguages(filename):
+    languagesList = []
+    with open (filename) as f:
+        languages = f.readlines()
+        for line in languages:
+            languagesList.append(line.split('. ')[1].rstrip())
+        f.close()
+    return languagesList 
+
+def writeJSONToFile(data, outfile):
     with open (outFile, 'w') as w:
-        json.dump(termsList, w);
+        json.dump(data, w)
+        w.close()
 
+def sanitizeTerms(termsList):
+    for index, term in enumerate(termsList):
+        term = term.replace(' ', '')
+        term = ''.join(e for e in term if e.isalnum())
+        termsList[index] = term
+    return termsList
 
-parseProgrammingTerms('./programmingTerms', './terms.json')
+def writeTermsToFile(outFile, termsFile, languagesFile):
+    terms = parseProgrammingTerms(termsFile)
+    languages = parseProgrammingLanguages(languagesFile)
+    searchCriterion = terms + languages;
+    searchCriterion = sanitizeTerms(searchCriterion);
+
+    writeJSONToFile(searchCriterion, outFile)
+
+termsFile = './programmingTerms' 
+languagesFile = './programmingLanguages' 
+outFile = './terms.json'
+
+writeTermsToFile(outFile, termsFile, languagesFile)

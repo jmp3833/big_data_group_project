@@ -19,7 +19,9 @@ function isRetweet(tweetText) {
 }
 
 //Any strings you would like to filter the Tweets by.
-var searchParams = ['programming', 'ruby', 'python', 'someOtherTopic'];
+var searchParams = require('./terms.json');
+searchParams = searchParams.join(',');
+console.log(searchParams);
 
 var twitterAPI = new Twit({
   //These are specific to the application
@@ -31,14 +33,11 @@ var twitterAPI = new Twit({
   access_token_secret: 'x6bJmx0efmBdSPnL35o6e6hi0emYpo3QNQ9QhGZKvMs9d' 
 });
 
-//Twitter API takes comma separated search values
-searchParams = searchParams.join(',');
-
 //TODO: Abstract out MongoDB connection code to its own module
 MongoClient.connect('mongodb://127.0.0.1:27017/test', function(dbConnectionErr, db) {
   if(dbConnectionErr) throw dbConnectionErr;
   //Filter all tweets with search key 'programming'
-  var stream = twitterAPI.stream('statuses/filter', { track: searchParams });
+  var stream = twitterAPI.stream('statuses/filter', { track: searchParams, language: 'en' });
   stream.on('tweet', function (tweet) {
     db.createCollection('tweets', function(collectionErr, collection) {
       if(collectionErr) throw collectionErr;

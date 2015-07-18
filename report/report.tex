@@ -7,6 +7,7 @@
 \usepackage{color}
 \usepackage{enumerate}
 \usepackage{balance}
+\usepackage{graphicx}
 \permission{}
 \CopyrightYear{2015}
 %\crdata{0-00000-00-0/00/00}
@@ -28,7 +29,7 @@ Data mining and analysis has opened many doors for researchers and product devel
 
 As a case study, take Stack Exchange \cite{iEEE:6542441} for example. This service is a Q\&A forum commonly associated with software development and computing topics that provides a publicly available data set containing questions, their associated answers, and a number of up votes signifying how relevant a specific answer is. This service can cover any development topic under the sun, but analyzing every question and response will not lead to any conclusive or meaningful results. Instead, pieces of this data set combined with many analysis techniques and other publicly available archived data can validate hypothesis or predict trends in other data sets. 
 
-This piece of research aims to determine the most popular set of programming languages through analysis of publicly available social discussions involving these languages. There are several criterion which can define the popularity of a language through techniques such as sentiment analysis of comments, or calculating the frequency of discussion on web forums regarding specific languages. 
+This piece of research aims to determine the most popular set of programming languages through analysis of publicly available social discussions involving these languages. There are several criterion which can define the popularity of a language through techniques such as sentiment analysis of comments, or calculating the frequency of discussion on web forums regarding specific languages. The most popular programming languages determined by our team\textsc{\char39}s analysis model will be compared against the Tiobe programming language community index rating for verification.  
 
 \end{abstract}
 
@@ -36,58 +37,99 @@ This piece of research aims to determine the most popular set of programming lan
 \label{overview}
 There are often emotionally fueled debates between members of enterprise organizations on which language to pick for a new project. While the sentiments of other developers may not be an all inclusive way to pick which language would be best for a given application, going into the decision process with an overview of popularity of a language is a nice starting point to the discussion. The success or failure of a project may not completely depend on the selection of a programming language, but the more information a developer can know up front about their project and the language they decide to use can make all the difference.
 
-There are many challenges that must be tackled to allow the analysis of these sources to be deemed as relevant. The data application developed would need to utilize tools like sentiment analysis and determine a way to include outliers in the popularity rating of a language. For example, regardless of all of the positive appeal given to a language there will always be some developers that provide strong negative reviews because of a specific component of the language. There must be a way to define the specific subtopics of a discussion that are identified as being either positive or negative. There also may be an associated credibility with each source of data. For instance, StackExchange can provide a rating of popularity for a specific user profile that posts a question or answer, but how can the credibility of tweets or Facebook posts be determined other than by sheer volume? Our team will spend a fair amount of time developing and testing strategies to analyze these issues. 
+There are many challenges that must be tackled to allow the analysis of these sources to be deemed as relevant. The data application developed would need to utilize tools like sentiment analysis and determine a way to include outliers in the popularity rating of a language. For example, regardless of all of the positive appeal given to a language there will always be some developers that provide strong negative reviews because of a specific component of the language. There must be a way to define the specific subtopics of a discussion that are identified as being either positive or negative. There also may be an associated credibility with each source of data. For instance, StackExchange can provide a rating of popularity for a specific user profile that posts a question or answer, but how can the credibility of tweets or Facebook posts be determined other than by sheer volume? Our team has spent a fair amount of time developing and testing strategies to analyze these issues. 
 
-A few example data sets that our team has decided to use for this analysis include a crawl of trending twitter topics, tweets, and users from the WWW conference \cite{Kwak10www}, the collection of publicly available StackExchange data, projects on SourceForge, and data scrapes from Facebook \cite{FBCrawl}. Our team could also look into more broadly ranging data sets such as google search trends, but this research has not currently been done.  These chunks of information come from independent sources and will be able to flex our team\textsc{\char39}s knowledge in distributed processing and analysis of large data sets. An example of this process would be to create a dictionary of programming language names and associated strings and parse the massive collection of tweets available to find text strings and associated metadata. These relevant tweets would be stored in our DBMS layer along with information collected from other sources. Sentiment analysis would then be run against these strings and relevant words associated with the defined dictionary to determine an overall positive or negative sentiment for the statement. Statistical analysis that we learn in the course could then be run across this set of result data. 
+A few example data sets that our team has decided to use for this analysis include a crawl of trending twitter topics, tweets, and users from the WWW conference \cite{Kwak10www}, the collection of publicly available StackExchange data, projects on SourceForge, and data scrapes from the GitHub search API. Our has decided to disregard more broadly ranging data sets such as google search trends, because our control set is based purely on these trends.  These chunks of information come from independent sources and will be able to flex our team\textsc{\char39}s knowledge in distributed processing and analysis of large data sets. Our analysis strategy consists of creating a dictionary of programming language names and associated strings and parsing the massive collection of tweets available to find text strings and associated metadata. This process is documented in the data mining process section of the document. These relevant tweets are stored in our DBMS layer along with information collected from other sources. Sentiment analysis is then run against these strings and relevant words associated with the defined dictionary to determine an overall positive or negative sentiment for the statement. Statistical analysis techniques that we have discovered through the course are then run across this set of result data. 
 
-In accordance to the project guidelines, our group intends to divide the project up into a data mining and storage section as well as a data processing and analytics section. The mining and storage section will be done by parsing the existing data sets in their current format and storing them in an aggregate SQL or Key/Value data store. We have not yet determined which store we will use but we will make that clear in the near future for validation. The analytics section will be done by constructing models in rattle and R to first determine an appropriate measurement of probability, and then an ordering of language popularity based on application context.
+In accordance to the project guidelines, our group has divided the project up into a data mining and storage section as well as a data processing and analytics section. The mining and storage section will be done by parsing the existing data sets in their current format and storing them in an aggregate MongoDB data store. The analytics section is done by constructing models in rattle and R to first determine an appropriate measurement of probability, and then an ordering of language popularity based on application context.
 
 \section{Problem Definition}
 \label{Problem Definition}
 
-Our team plans to utilize three distinct data sources to perform a well rounded analysis. We have decided to use publicly available StackOverflow comments, public Twitter stream data, and github repository metrics to get comments and discussions involving programming languages. There are specific challenges that need to be addressed for each source when data mining. Once all of the information has been collected, each source will be stored in a collection object defined by MongoDB so that distributed queries can be run across each source with limited computing resources. There is still additional work to be done to examine and sift through the data coming from these resources, but the initial mining step is well underway. All code and documentation that has been written is included with this submission.
+Our team plans to utilize three distinct data sources to perform a well rounded analysis. We have decided to use publicly available StackOverflow comments, public Twitter stream data, and GitHub repository metrics to get comments and discussions involving programming languages. There are specific challenges that need to be addressed for each source when data mining. Once all of the information has been collected, each source will be stored in a collection object defined by MongoDB so that distributed queries can be run across each source with limited computing resources. All code and documentation that has been written is included with this submission.
 
 Once the data is all stored in a central location, the goal is to perform additional market research in order to filter each statement based on criterion that can help our team discover the relationship between a language\textsc{\char39}s social media presence and its popularity in industry. In the project\textsc{\char39}s current phase, our team would like to see how the overall sentiment conveyed by media users produces a rank for each programming language as compared to already existing rating sources, such as the TRIOBE software list of most used programming languages \cite{TIOBERATINGS}. The team would like to discover if the opinion of developers about a language actually relates to whether or not the language is used in industry. 
 
 We are planning to examine customer interaction patterns in StackOverflow, such as how often they sign in and their frequency in asking questions or answering them. In addition we plan to analyze user\textsc{\char39}s demographics and psychographics based on the data collected to build a model out of the data structure. This will help the team to understand user behaviour and tailor our experiment.  
 
-The Twitter mining portion of the experiment involves parsing all available tweets using an incoming firehose of data that s returned from Twitter\textsc{\char39}s API. There is a publicly available endpoint which utilizes OAuth requests to generate a live stream of data, filtered by a set of comma separated search delimiters and geographical data. A small whitelist of search terms has been built to test the stream of incoming data and the effectiveness of API\textsc{\char39}s ability to filter based on search strings. These tweets are then run through a series of sanitization which strips out retweets and other pieces of content that may be erroneous in future analysis. These tweets are then stored in a \textsc{\char39}tweets\textsc{\char39} collection in a local MongoDB instance for further processing and sentiment analysis. 
+The Twitter mining portion of the experiment involves parsing all available tweets using an incoming firehose of data that s returned from Twitter\textsc{\char39}s API. There is a publicly available endpoint which utilizes OAuth requests to generate a live stream of data, filtered by a set of comma separated search delimiters and geographical data.These tweets are then run through a cleansing phase which strips out retweets and other pieces of content that may be erroneous in future analysis. These tweets are then stored in a \textsc{\char39}tweets\textsc{\char39} collection in a local MongoDB instance for further processing and sentiment analysis. 
 
-The GitHub data portion of the experiment has not yet been parsed, but the data source has been identified and downloaded to the team\textsc{\char39}s local development server. The analysis on public github repository data will follow the same format as the StackExchange data analysis.
+\section{Data Mining Process}
+\label{data mining process}
+
+At this current point in the phase two submission, two modules have been written
+that take care of the mining and sanitation of data. There have been significant improvements made from the phase 1 segment of the project. The process of accessing the teams database and running mining scripts is documented in the accessing current work section of this document. 
+
+In phase 1, a script was written to connect to secure APIs for Twitter and StackExchange, and then to fetch content and store it in a MongoDB instance. At this point in writing we have over 50 million unique records stored in total for each source. A good chunk of these records are sourced from twitter, which has a much broader range of content to parse in order to generate meaningful results for our project. Since the first code submission our team has worked to improve the quality of records being inserted into the database, leaving us with a current value of approximately 15 million unique values that are relevant for our analysis. Our team has also generated code to mine and sanitize information coming from the GitHub search API. 
+
+Initially, the analysis was done on a rather limited set of terms, with only 10 terms being used as search criterion. These terms were also  vague, leading to issues during mining and analysis (i.e. tweets about famous women named \textsc{\char39}Ruby\textsc{\char39} being stored in the database rather than tweets involving the Ruby programming language). As of phase 2, our team has now written a Python module which scrapes two sources, one with a list of all known programming languages and derivatives, \cite{ProgrammingTerms} and another with a glossary of programming language terms. \cite{ProgrammingLanguages} These terms are parsed from different text-based formats taken from a raw HTML response from a GET request to both site servers. The values sampled from plain text are then merged into a single array, written out to a JSON format, imported into the twitter mining script, and combined into a comma separated string used as search delimiters when mining. All code used for the mining, sanitation, and analysis of data is located within our team\textsc{\char39}s github repository for improvement recommendations! \cite{GroupRepo}
+
+The Twitter API has provided a steady stream of incoming data with opinions, suggestions, and links discussing specific programming languages. There are now helper functions defined in our parsing module to ignore re tweets, media based posts such as images and videos, very short tweets less than 5 characters, and tweets that consist entirely of links. These refinement strategies combined with very specific search criterion has given our team both the ability to search each API for content that will be useful in analysis and to have a set of terms that we can verify against when constructing our data model.
+
+While gathering plain text posts from StackExchange and twitter turned out to be quite simple, more work had to be done in order to get relevant information from the publicly available GitHub search API. Our team decided to use the terms list produced through our Python module to query the 1000 most recent repositories that contain code segments matching the \textsc{\char39}top\textsc{\char39} programming languages cross referenced from their Tiobe popularity rating.
+
+Once these repositories were located, queries could again be run to find all active discussions on GitHub that referenced or were a part of the queried repositories. These conversations were then stored in the GitHub collection of our team\textsc{\char39}s MongoDB instance.
+
+Fortunately the task of acquiring troves of data was not blocked by API query limity for Twitter, GitHub, or StackExchange. The final count of records used to perform our analysis will be documented upon completion of the project. 
 
 \section{Data Model Definition}
 \label{Data Model Definition}
 
-\textbf{MORE DETAILS TO COME IN PHASE 2}
 We are planning to use Clustering, Classification and sequential pattern techniques to build our model. We are also planning to use MapReduce Processing since our database of StackOverflow, GitHub, and Twitter content under study is based on non relational databases. In addition, the team will build a statistical model based on overall sentiment in regards to each popular language to identify and extract the information from the collected data. 
 
-Anomaly detection might help the team to target outliers in opinion and to identify the overall relevance of a discussion on each media platform. It helps to understand how the results of sequential pattern analysis may look different from anomaly detection perspective. 
+Anomaly detection may help the team to target outliers in opinion and to identify the overall relevance of a discussion on each media platform. It helps to understand how the results of sequential pattern analysis may look different from anomaly detection perspective. 
 
 Association learning helps us to identify the similarities between a user\textsc{\char39}s history and their next search query. If a person searches something related to big data, they may be more likely to produce more queries related to big data. The concept of association learning is what makes the suggestions in stack exchange that appear to the the right of a user\textsc{\char39}s browser. We can reveal the structure of the data based on the patterns detected and can apply them to predict other aspects of data. Hence we can derive our model based on these associations derived from data mining techniques. 
+
 Algorithm property:
-We are planning to use  either Segmentation or Sequence analysis algorithms  Segmentation algorithms help us to divide the data types into clusters based on their common properties whereas Sequence analysis summarizes frequently repeating events or sequences in data and helps us understand the flow of the data like the user flow or the web flow.The later algorithm in case of our indented dataset Stack Overflow helps us understand the user\textsc{\char39}s interest based on his/her patterns and predict what they might search next or which query might assist them to get the answer they are looking for. 
+We are planning to use Sequence analysis algorithms in order to help to summarize frequently repeating events or sequences in data, and to help understand the flow of the data. This will allow the team to identify characteristics such as user flow or web flow. in case of our indented data sets, this technique helps us to understand the user\textsc{\char39}s interest based on his/her patterns and to predict what they might search for next or which query might assist them to get the results they are looking for. 
 
 \section{Approaching Deliverables}
 \label{Approaching Deliverables}
 
-The team first must work to define criterion used to relate each separate dataset, such as text content of thread posts, tweets, or comments. Once each data source has correctly defined sanitaztion texhiques, the team can move on to model analysis of the data. From here, we will continually reformat our sanitization and collection techniques and increase the number of studies we are comparing to our results to paint a more accurate picture of our data. Our team\textsc{\char39}s current set of deliverables is outlined as follows: 
+The team has completed the data mining section of the assignment, short of some last minute sanitization pending analysis, and has moved on to model analysis of the data. From here, we will continually reformat our sanitization and collection techniques and increase the number of studies we are comparing to our results to paint a more accurate picture of our data. Our team\textsc{\char39}s current set of deliverables is outlined as follows: 
 
 \begin{enumerate}
-\item Finish collecting all data sources into MongoDB Instance - Week 5
-\item Outline and run all initial sanitization techniques on data - Week 6
-\item Perform sentiment analysis on datasets and compare to results - Weeks 7,8
-\item Final reporting, dataset adjustments, and documentation of results - Rest of term
+\item Perform sentiment analysis on data sets and compare to results - Weeks 7,8
+\item Final reporting, data set adjustments, and documentation of results - Rest of term
 \end{enumerate}
-
-\section{Architecture}
-\label{architecture}
-
-\textbf{TBD}
 
 \section{Implementation}
 \label{implementation}
+The reason for us to use R studio for our data mining is that it is an open source library with more number of inbuilt R packages and generating reports and visualization is pretty simple using R studio. We are using R to collect the keywords, run a sentimental analysis and apply a classification algorithm to estimate their sentiment based on the elements and features collected. R programming then collects the elements and features as objects. Since most of the R programming libraries and the needed features are inbuilt it displays the list in a few minutes. We then apply Classification algorithms to count the features and map them to the elements by collecting the occurrences. Then again we perform a deep analysis on the text segment as a whole to estimate the sentiment again and to finalize mapping the correlation. We then will conclude our study by presenting a data frame based on the analysis along with some statistical report to support our stand and a visualization graph using R studio to show our results. Our Workflow is as follows:
 
-\textbf{TBD}
+\begin{enumerate}
+  \item Collecting Twitter data set using the keywords
+  \item Run an sentimental analysis on the data collected
+  \item Apply classification algorithm to group the data based on the elements
+  \item Rearrange the positive and negative elements collected to rerun the algorithm more specific and see how far the correlation differs
+\end{enumerate}
+
+\begin{figure}[ht!]
+\centering
+\includegraphics[width=90mm]{universe.jpg}
+\caption{Sentiment analysis flow. \label{overflow}}
+\end{figure}
+
+We are using the keywords to map the twitter data set to understand the positive and negative sentiments. We are using python scripts to run out analysis. Since we are trying to understand the popularity of the programming language from GitHub dataset, we are using Natural Language toolkit library for text processing and analysis of the GitHub data set using a python script. We are now using sentiment analysis on the positive and negative elements to correlate the data sets collected, in order to pipe our results into a running classification algorithm. 
+
+In our next analysis we are planning to collect the individual words themselves rather than just positive and negative words and correlate them as they may not the same result. The reason for us to collect individual words is that people might use negative terms to show a positive reaction or like they might use a negative word like 
+\emph {R programming helps me overcome all the troubles and issues I was having with other data mining languages}
+
+This text has two negative words and a possible positive word \quotes{Overcome} regarding R programming. So our first process will conclude and categorize R programming into a negative element since it has two negative words. 
+But out later analysis of counting individual words will categorize R programming into a positive element. This variation in correlation may greatly affect our results. One of the issue we face while doing the latter analysis of counting individual words is that counting individual keywords using keywords as features is a time consuming process. 
+
+We then based on the data gathered we do a deeper classification of the sentences as a whole to reduce inaccuracy. Henceforth standard negative elements do not necessarily conclude that the programming language is to classify under a negative element. 
+We then perform sentiment analysis using the classify emotion function to analyze the tweets and classify them based on the features.For our further analysis we are planning to go with either Naive Bayes, Logistic Regression or a decision tree for further in depth study on the correlation of the elements.
+
+\section{Accessing Current Work}
+All of our team\textsc{\char39}s work and running code segments are available in our public github repository. \cite{GroupRepo} The README.md file located within the root of the repository is a great resource to run our Python modules, NodeJS parsing code, and to set up a MongoDB instance if it is desired to run the code locally. Otherwise, the environment is already configured on an AWS instance for convenience.
+
+In order to access the instance, download the private .pem key file from \link{http://justinpeterson.me/bigdata.pem} and run the command 
+"ssh -i bigdata.pem ubuntu@ec2-52-25-115-246.us-west-2.compute.amazonaws.com". From here cd into the big-data-group-project directory and run any scripts specified in the README.md document. It is also possible to view the data that has already been stored in the MongoDB Instance by following the mongo shell guides found at \link{https://docs.mongodb.org/getting-started/shell/}.
+Once inside the shell, the running MongoDB instance will contain three collections, one per each data source. Snippets of each data source are also included with the phase 2 submission of this project.
+
+\label{accessing current work}
 
 \section{Lessons Learned}
 \label{mistakes}

@@ -2,7 +2,7 @@
  * Grab tweets with given keywords and store in a local MongoDB instance.
  * @author: Justin Peterson
  * @date: 07/15/15
-*/
+ */
 
 //Twitter API abstraction for NodeJS
 var Twit = require('twit');
@@ -52,7 +52,7 @@ function streamTweets(dbURL, criterion) {
             if(dbWriteErr) throw dbWriteErr;
             console.log("Inserted a Tweet to DB!!");
             console.log("Tweet text: ", tweet.text);
-           });
+          });
         }
       });
     });

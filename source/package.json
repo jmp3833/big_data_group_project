@@ -18,6 +18,7 @@
   "dependencies": {
     "twit": "~2.1.0",
     "mongodb": "~2.0.36",
-    "github": "~0.2.4"
+    "github": "~0.2.4",
+    "sentiment": "~1.0.2"
   }
 }

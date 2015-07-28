@@ -12,8 +12,8 @@ var github = new GithubApi({
 
 github.authenticate({
     type: "basic",
-    username: "XXXXX",
-    password: "XXXXX"
+    username: "jmp3833",
+    password: "JmP71393"
 });
 
 function queryRepos(query, callback) {

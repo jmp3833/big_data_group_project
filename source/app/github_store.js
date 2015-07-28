@@ -10,19 +10,21 @@ var github = new GithubApi({
   }
 });
 
+github.authenticate({
+    type: "basic",
+    username: "XXXXX",
+    password: "XXXXX"
+});
+
 function queryRepos(query, callback) {
   github.search.repos(query, callback);
 }
 
-var query = {
-  language: "javascript",
-  q: "React"
-};
-
-queryRepos(query, function(err, results) {
-  console.log(JSON.stringify(results));
-});
+function queryIssuesByRepo(query, callback) {
+  github.search.issues(query, callback);
+}
 
 module.exports = {
-  queryRepos: queryRepos
+  queryRepos: queryRepos,
+  queryIssuesByRepo: queryIssuesByRepo
 };

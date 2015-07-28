@@ -1,0 +1,19 @@
+{
+  "Java": 1,
+  "C": 2,
+  "C++": 3,
+  "C#": 4,
+  "Python": 5,
+  "ObjectiveC": 6,
+  "PHP": 7,
+  "VisualBasic": 8,
+  "JavaScript": 9,
+  "Perl": 10,
+  "Pascal": 11,
+  "ABAP": 12,
+  "Ruby": 13,
+  "Swift": 14,
+  "R": 15,
+  "SQL": 16,
+  "MATLAB": 17
+}

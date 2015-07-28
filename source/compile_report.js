@@ -56,7 +56,7 @@ function buildCSVLine(document, language, source) {
   //Strip newlines and special characters
   var textContent = document.replace(/\r?\n|\r/g, ' ').replace(/[^\w\s]/gi, '');
   var r = sentiment(textContent);
-  var ranking = rankings[document.language]? rankings[document.language] : 18;
+  var ranking = rankings[language]? rankings[language] : 18;
 
   return textContent + ',' + r.comparative + ',' + language + ',' + ranking + ',' + source + '\n';
 }

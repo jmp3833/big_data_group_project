@@ -22,7 +22,7 @@ def parseProgrammingLanguages(filename):
     return languagesList 
 
 def writeJSONToFile(data, outfile):
-    with open (outFile, 'w') as w:
+    with open (outfile, 'w') as w:
         json.dump(data, w)
         w.close()
 
@@ -33,16 +33,19 @@ def sanitizeTerms(termsList):
         termsList[index] = term
     return termsList
 
-def writeTermsToFile(outFile, termsFile, languagesFile):
+def writeTermsToFile(outfile, termsFile, languagesFile):
     terms = parseProgrammingTerms(termsFile)
     languages = parseProgrammingLanguages(languagesFile)
     searchCriterion = terms + languages;
     searchCriterion = sanitizeTerms(searchCriterion);
 
-    writeJSONToFile(searchCriterion, outFile)
+    laguages = sanitizeTerms(languages);
+
+    writeJSONToFile(languages, './languages.json')
+    writeJSONToFile(searchCriterion, outfile)
 
 termsFile = '../data/programmingTerms' 
 languagesFile = '../data/programmingLanguages' 
-outFile = './terms.json'
+outputFile = './terms.json'
 
-writeTermsToFile(outFile, termsFile, languagesFile)
+writeTermsToFile(outputFile, termsFile, languagesFile)

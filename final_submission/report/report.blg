@@ -1,0 +1,74 @@
+This is BibTeX, Version 0.99d (TeX Live 2013/Debian)
+Capacity: max_strings=35307, hash_size=35307, hash_prime=30011
+The top-level auxiliary file: report.aux
+The style file: abbrv.bst
+Database file #1: report.bib
+I was expecting a `,' or a `}'---line 53 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-06-17}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 65 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-06-30}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 77 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-07-15}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 89 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-07-01}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+I was expecting a `,' or a `}'---line 101 of file report.bib
+ :   
+ :   note         = {Accessed: 2015-07-01}
+(Error may have been on previous line)
+I'm skipping whatever remains of this entry
+Warning--to sort, need author or key in FBCrawl
+Warning--to sort, need author or key in TIOBERATINGS
+You've used 4 entries,
+            2118 wiz_defined-function locations,
+            521 strings with 4413 characters,
+and the built_in function-call counts, 1369 in all, are:
+= -- 135
+> -- 48
+< -- 2
++ -- 20
+- -- 16
+* -- 81
+:= -- 192
+add.period$ -- 11
+call.type$ -- 4
+change.case$ -- 20
+chr.to.int$ -- 0
+cite$ -- 6
+duplicate$ -- 60
+empty$ -- 127
+format.name$ -- 16
+if$ -- 317
+int.to.chr$ -- 0
+int.to.str$ -- 4
+missing$ -- 2
+newline$ -- 21
+num.names$ -- 4
+pop$ -- 35
+preamble$ -- 1
+purify$ -- 16
+quote$ -- 0
+skip$ -- 54
+stack$ -- 0
+substring$ -- 80
+swap$ -- 23
+text.length$ -- 2
+text.prefix$ -- 0
+top$ -- 0
+type$ -- 16
+warning$ -- 2
+while$ -- 9
+width$ -- 5
+write$ -- 40
+(There were 5 error messages)

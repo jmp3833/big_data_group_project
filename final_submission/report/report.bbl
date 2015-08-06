@@ -1,0 +1,25 @@
+\begin{thebibliography}{1}
+
+\bibitem{FBCrawl}
+2005 facebook crawl.
+\newblock \url{https://archive.org/details/oxford-2005-facebook-matrix}.
+
+\bibitem{TIOBERATINGS}
+Tiobe programming language popularity rating.
+\newblock
+  \url{http://www.tiobe.com/index.php/content/paperinfo/tpci/index.html}.
+
+\bibitem{Kwak10www}
+H.~Kwak, C.~Lee, H.~Park, and S.~Moon.
+\newblock {W}hat is {T}witter, a social network or a news media?
+\newblock In {\em WWW '10: Proceedings of the 19th international conference on
+  World wide web}, pages 591--600, New York, NY, USA, 2010. ACM.
+
+\bibitem{iEEE:6542441}
+D.~Posnett, E.~Warburg, P.~Devanbu, and V.~Filkov.
+\newblock Mining stack exchange: Expertise is evident from initial
+  contributions.
+\newblock In {\em Social Informatics (SocialInformatics), 2012 International
+  Conference on}, pages 199--204, Dec 2012.
+
+\end{thebibliography}

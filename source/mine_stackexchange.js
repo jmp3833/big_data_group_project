@@ -8,7 +8,7 @@ var context = new stackexchange(options);
 languages.forEach(function(language) {
 
   var filter = {
-    key: 'BKCTaQSgaXVNth*oR1ybgA((',
+    key: 'XXXX
     pagesize: 100,
     tagged: language,
     sort: 'activity',

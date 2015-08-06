@@ -6,14 +6,14 @@ var github = new GithubApi({
   protocol: "https",
   timeout: 5000,
   headers: {
-    "user-agent": "jmp3833" 
+    "user-agent": "XXXX" 
   }
 });
 
 github.authenticate({
     type: "basic",
-    username: "jmp3833",
-    password: "JmP71393"
+    username: "XXXX",
+    password: "XXXX"
 });
 
 function queryRepos(query, callback) {
